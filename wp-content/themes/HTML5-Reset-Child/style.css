@@ -1,7 +1,7 @@
 /*
  Theme Name:	HTML5 Reset Child
  Theme URI: 	
- Description:	Child Theme of the HTML5 Reset theme (bare bones theme)
+ Description:	Child Theme of the HTML5 Reset theme (the nothing theme)
  Author: 		Kevin Chau
  Author URI:	http://chau958.chsweb.org
  Template:		HTML5-Reset
@@ -11,7 +11,54 @@
  Tags:			bootstrap, multiple-columns, right-sidebar, responsive-layout
  Text Domain:	HTML5-Reset
 */
-
-.html5-child {
-	font-family: Consolas, monospace;
+@font-face {
+    font-family:  'Aleo';
+    src:  url('fonts/Aleo-Italic.otf');
+    font-weight:  400;
+    font-style:  italic;
 }
+@font-face {
+    font-family:  'Aleo';
+    src:  url('fonts/Aleo-Bold.otf');
+    font-weight:  700;
+    font-style:  normal;
+}
+@font-face {
+    font-family:  'Aleo';
+    src: url('fonts/Aleo-BoldItalic.otf');
+    font-weight:  700;
+    font-style:  italic;
+}
+@font-face {
+    font-family:  'Noto Sans';
+    src:  url('fonts/NotoSans-Regular.ttf') format(
+        'truetype');
+    font-weight:  400;
+    font-style: normal;
+}
+body.fontface {
+    font-family:  'Noto Sans', serif;
+    font-size:  220%;
+}
+h1 {
+    font-family:  'Aleo', sans-serif;
+    font-weight:  700;
+    font-style: italic;
+}
+h2, h3, h4 {
+    font-family: 'Aleo', sans-serif;
+    font-weight:  700;
+    font-style:  normal;
+}
+
+/* End of Mobile Portrait Layout Styles */
+
+/* Medium width Style (minimum 927px wide) */
+@media (min-width: 927px) {
+    div.container {
+        width: 910px;
+    }
+
+
+}
+

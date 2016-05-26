@@ -15,9 +15,6 @@
 
 <head id="<?php echo of_get_option('meta_headid'); ?>" data-template-set="html5-reset-wordpress-theme">
 
-	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
-	<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-
 	<meta charset="<?php bloginfo('charset'); ?>">
 
 	<!-- Always force latest IE rendering engine (even in intranet) -->
@@ -40,6 +37,7 @@
 	<?php
 		if (true == of_get_option('meta_author'))
 			echo '<meta name="author" content="' . of_get_option("meta_author") . '" />';
+
 		if (true == of_get_option('meta_google'))
 			echo '<meta name="google-site-verification" content="' . of_get_option("meta_google") . '" />';
 	?>
@@ -56,6 +54,8 @@
 		*/
 		if (true == of_get_option('meta_viewport'))
 			echo '<meta name="viewport" content="' . of_get_option("meta_viewport") . ' minimal-ui" />';
+
+
 		/*
 			These are for traditional favicons and Android home screens.
 			 - sizes: 1024x1024
@@ -67,6 +67,8 @@
 			echo '<meta name=”mobile-web-app-capable” content=”yes”>';
 			echo '<link rel="shortcut icon" sizes=”1024x1024” href="' . of_get_option("head_favicon") . '" />';
 		}
+
+
 		/*
 			The is the icon for iOS Web Clip.
 			 - size: 57x57 for older iPhones, 72x72 for iPads, 114x114 for iPhone4 retina display (IMHO, just go ahead and use the biggest one)
@@ -96,6 +98,7 @@
 			echo '<meta name="msapplication-TileColor" content="' . of_get_option("meta_app_win_color") . '" /> ';
 			echo '<meta name="msapplication-TileImage" content="' . of_get_option("meta_app_win_image") . '" />';
 		}
+
 		// Twitter
 		if (true == of_get_option('meta_app_twt_card')) {
 			echo '<meta name="twitter:card" content="' . of_get_option("meta_app_twt_card") . '" />';
@@ -104,6 +107,7 @@
 			echo '<meta name="twitter:description" content="' . of_get_option("meta_app_twt_description") . '" />';
 			echo '<meta name="twitter:url" content="' . of_get_option("meta_app_twt_url") . '" />';
 		}
+
 		// Facebook
 		if (true == of_get_option('meta_app_fb_title')) {
 			echo '<meta property="og:title" content="' . of_get_option("meta_app_fb_title") . '" />';
@@ -115,13 +119,15 @@
 
 	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<link rel="pingback" href="<?php bloginfo('pingback_url'); ?>" />
+
 	<?php wp_head(); ?>
+
 </head>
 
-<body <?php body_class('fontface'); ?>>
+<body <?php body_class('html5-child'); ?>>
 
 	<!-- not needed? up to you: http://camendesign.com/code/developpeurs_sans_frontieres -->
-	<div class="wrapper container">
+	<div id="wrapper">
 
 		<header id="header" role="banner">
 			<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
@@ -129,5 +135,11 @@
 		</header>
 
 		<nav id="nav" role="navigation">
-			<?php wp_nav_menu( array('theme_location' => 'primary') ); ?>
+			<button type="button" class="btn btn-default btn-lg responsive-toggle">
+                <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+            </button>
+            <?php wp_nav_menu( array('theme_location'=> 'primary',
+                'container' => 'ul', 
+                'menu_class' => 'nav nav-pills') ); ?>
 		</nav>
+
